@@ -19,6 +19,7 @@ public class WalkingManMain extends JFrame
 			public void (keyReleased (keyEvent e))
 			{
 				//http://www.java2s.com/Tutorials/Java/Swing_How_to/JFrame/Use_KeyListener_with_JFrame.htm
+				//https://stackoverflow.com/questions/21997130/how-to-use-keylistener-with-jframe
 			}
 		}
 			

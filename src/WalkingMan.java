@@ -8,7 +8,7 @@ import javax.swing.JComponent;
 
 public class WalkingMan extends JComponent
 {
-		// have keyListener move / change the object's position
+		//have keyListener move / change the object's position
 		//keyListener goes on the frame itself (not on the component)
 			//pay attention to arguments of key listener (det what keys were pressed)
 			//useful letters: VK
