@@ -1,30 +1,35 @@
+import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
-public class WalkingManMain 
+public class WalkingManMain extends JFrame
 {
-
-	public static void main(String[] args) 
+	public WalkingManMain()
 	{
-		JFrame myFrame = new JFrame();
-		myFrame.setBounds(150,200,500,300);
-		myFrame.setLayout(null);
+		setTitle("Walking Man");
+		setBounds(150,200,500,300);
+		setLayout(null);
 		
 		WalkingMan man = new WalkingMan(50,50);
-		myFrame.add(man);
+		add(man);
 
 		addKeyListener(new KeyListener()
+		{
+			public void (keyReleased (keyEvent e))
 			{
-		
+				//http://www.java2s.com/Tutorials/Java/Swing_How_to/JFrame/Use_KeyListener_with_JFrame.htm
 			}
+		}
+			
+	
 		
 		
 		
 		
 		
-		myFrame.setVisible(true);;
-		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true;;
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 }
