@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -47,7 +48,31 @@ public class WalkingMan extends JComponent
 		paint.draw(hips);
 		paint.draw(leftLeg);
 		paint.draw(rightLeg);
+		paint.setColor(Color.BLACK);
 	}	
 	
+	public void moveRight()
+	{
+		x = x + 5;
+		repaint();
+	}
+	
+	public void moveLeft()
+	{
+		x = x -5;
+		repaint();
+	}
+	
+	public void moveUp()
+	{
+		y = y -5;
+		repaint();
+	}
+	
+	public void moveDown()
+	{
+		y = y +5;
+		repaint();
+	}
 
 }

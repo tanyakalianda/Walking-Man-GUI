@@ -1,4 +1,5 @@
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
@@ -16,21 +17,40 @@ public class WalkingManMain extends JFrame
 
 		addKeyListener(new KeyListener()
 		{
-			public void (keyReleased (keyEvent e))
+			public void (keyPressed(KeyEvent e))
 			{
+				int key = e.getKeyCode();
+				if (key == KeyEvent.VK_RIGHT)
+				{
+					moveRight();
+				}
+				else if (key == KeyEvent.VK_LEFT)
+				{
+					moveLeft();
+				}
+				else if (key == KeyEvent.VK_UP)
+				{
+					moveUp();
+				}
+				else if (key == KeyEvent.VK_DOWN)
+				{
+					moveDown();
+				}
 				//http://www.java2s.com/Tutorials/Java/Swing_How_to/JFrame/Use_KeyListener_with_JFrame.htm
 				//https://stackoverflow.com/questions/21997130/how-to-use-keylistener-with-jframe
 			}
-		}
+		});
 			
-	
 		
 		
 		
-		
-		
-		setVisible(true;;
+		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	public static void main(String[] args)
+	{
+		new WalkingManMain();
 	}
 
 }
