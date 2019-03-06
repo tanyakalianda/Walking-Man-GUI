@@ -16,6 +16,13 @@ public class WalkingMan extends JComponent
 		//must use the repaint() method and Ellipse2D.Double()
 		//optional to change color w/ setColor() method
 		//only method you need: paintComponent
+	//dx and dy should be created in the walking man, not in the frame
+	//with a timer, keyPress and keyRelease are controlling rate of change in both directions (Rate of Change)
+	//with a timer, action listener is controlling the movement -> timer is constantly adding the ROC to the position
+	//w/o pressing any buttons, ROC = 0 -> man doesn't move
+	//press button -> change dx/dy -> that moves the man
+	//for ball b: shots
+	//b.update();
 	
 	private Ellipse2D.Double head;
 	private Rectangle leftArm;
@@ -24,9 +31,13 @@ public class WalkingMan extends JComponent
 	private Rectangle hips;
 	private Rectangle leftLeg;
 	private Rectangle rightLeg;
+	private int dx = 0;
+	private int dy;
 	
 	public WalkingMan(int x, int y)
 	{
+		dx = 0;
+		dy = 0;
 		this.setLocation(x, y);
 		this.setSize(26,46);              //sets the size for the frame of the WalkingMan - should be 1 pixel greater than the walking man's dimensions              
 		head = new Ellipse2D.Double(10,0,10,10);
@@ -50,5 +61,19 @@ public class WalkingMan extends JComponent
 		paint.draw(rightLeg);
 		paint.setColor(Color.BLACK);
 	}	
-
+	
+	public void update()
+	{
+		setLocation(getX() + dx, getY() + dy);
+	}
+	
+	public void setdx(int x)
+	{
+		dx = x;
+	}
+	
+	public void setdy(int y)
+	{
+		dy = y;
+	}
 }
