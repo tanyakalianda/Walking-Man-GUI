@@ -64,7 +64,7 @@ public class WalkingMan extends JComponent
 	
 	public void update()
 	{
-		setLocation(getX() + dx, getY() + dy);
+		setLocation(getX() + dx, getY() + dy); 
 	}
 	
 	public void setdx(int x)

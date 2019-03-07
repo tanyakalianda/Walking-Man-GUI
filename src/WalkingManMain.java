@@ -26,23 +26,39 @@ public class WalkingManMain extends JFrame implements ActionListener
 				int key = e.getKeyCode();
 				if (key == KeyEvent.VK_RIGHT)
 				{
-					//man.setLocation(man.getX() + 5, man.getY());
+					//man.setLocation(man.getX() + 5, man.getY())
 					man.setdx(3);
+					if (man.getX() >= getWidth() - man.getWidth())
+					{
+						man.setdx(0);
+					}
 				}
 				else if (key == KeyEvent.VK_LEFT)
 				{
 					//man.setLocation(man.getX() - 5, man.getY());
 					man.setdx(-3);
+					if (man.getX() <= 0) 
+					{
+						man.setdx(0);
+					}
 				}
 				else if (key == KeyEvent.VK_UP)
 				{
 					//man.setLocation(man.getX(), man.getY() - 5 );
 					man.setdy(-3);
+					if (man.getY() <= 0)
+					{
+						man.setdy(0);
+					}
 				}
 				else if (key == KeyEvent.VK_DOWN)
 				{
 					//man.setLocation(man.getX(), man.getY() + 5);
 					man.setdy(3);
+					if (man.getY() >= getHeight() - man.getHeight())
+					{
+						man.setdy(0);
+					}
 				}
 			}
 		
@@ -77,6 +93,15 @@ public class WalkingManMain extends JFrame implements ActionListener
 		{
 			public void actionPerformed(ActionEvent e)
 			{
+				if (man.getX() == 0 || man.getX() == 500)
+				{
+					System.out.print("hello");
+					man.setdx(0);
+				}
+				if (man.getY() == 0 || man.getY() == 300)
+				{
+					man.setdy(0);
+				}
 				man.update();
 				repaint();
 			}
@@ -100,5 +125,12 @@ public class WalkingManMain extends JFrame implements ActionListener
 	public static void main(String[] args)
 	{
 		new WalkingManMain();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) 
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }
