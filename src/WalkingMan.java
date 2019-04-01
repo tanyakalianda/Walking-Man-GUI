@@ -9,21 +9,6 @@ import javax.swing.JComponent;
 
 public class WalkingMan extends JComponent
 {
-		//have keyListener move / change the object's position
-		//keyListener goes on the frame itself (not on the component)
-			//pay attention to arguments of key listener (det what keys were pressed)
-			//useful letters: VK
-		//must use the repaint() method and Ellipse2D.Double()
-		//optional to change color w/ setColor() method
-		//only method you need: paintComponent
-	//dx and dy should be created in the walking man, not in the frame
-	//with a timer, keyPress and keyRelease are controlling rate of change in both directions (Rate of Change)
-	//with a timer, action listener is controlling the movement -> timer is constantly adding the ROC to the position
-	//w/o pressing any buttons, ROC = 0 -> man doesn't move
-	//press button -> change dx/dy -> that moves the man
-	//for ball b: shots
-	//b.update();
-	//balls must disappear from array once they leave the screen
 	
 	private Ellipse2D.Double head;
 	private Rectangle leftArm;
