@@ -13,8 +13,8 @@ public class Ball extends JComponent
 	
 	public Ball()
 	{
-		dx = 0;
-		dy = 0;
+		dx = 3;
+		dy = 2;
 		ball = new Ellipse2D.Double(0,0,10,10);    //this ellipse has a location at (0,0), horizontal radius = 10, vertical radius = 10
 		this.setSize(11,11);//(20,20) is based on where (0,0) of the JComponent
 	}

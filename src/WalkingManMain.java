@@ -8,15 +8,17 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
-public class WalkingManMain extends JFrame implements ActionListener 
+public class WalkingManMain extends JFrame 
 {	
+	private ArrayList<Ball> balls = new ArrayList<Ball>();
+	
 	public WalkingManMain()
 	{
 		setTitle("Walking Man");
 		setBounds(150,200,500,300);
 		setLayout(null);
 		
-		WalkingMan man = new WalkingMan(50,50);
+		WalkingMan man = new WalkingMan(200,100);
 		add(man);
 
 		addKeyListener(new KeyListener()
@@ -28,37 +30,28 @@ public class WalkingManMain extends JFrame implements ActionListener
 				{
 					//man.setLocation(man.getX() + 5, man.getY())
 					man.setdx(3);
-					if (man.getX() >= getWidth() - man.getWidth())
-					{
-						man.setdx(0);
-					}
 				}
 				else if (key == KeyEvent.VK_LEFT)
 				{
 					//man.setLocation(man.getX() - 5, man.getY());
 					man.setdx(-3);
-					if (man.getX() <= 0) 
-					{
-						man.setdx(0);
-					}
 				}
 				else if (key == KeyEvent.VK_UP)
 				{
 					//man.setLocation(man.getX(), man.getY() - 5 );
 					man.setdy(-3);
-					if (man.getY() <= 0)
-					{
-						man.setdy(0);
-					}
 				}
 				else if (key == KeyEvent.VK_DOWN)
 				{
 					//man.setLocation(man.getX(), man.getY() + 5);
 					man.setdy(3);
-					if (man.getY() >= getHeight() - man.getHeight())
-					{
-						man.setdy(0);
-					}
+				}
+				else if (key == KeyEvent.VK_SPACE)
+				{
+					Ball ball1 = new Ball();
+					ball1.setLocation(man.getX(),man.getY());
+					balls.add(ball1);
+					add(ball1);
 				}
 			}
 		
@@ -93,16 +86,35 @@ public class WalkingManMain extends JFrame implements ActionListener
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				if (man.getX() == 0 || man.getX() == 500)
+				if (man.getdx() == 3 && man.getX() >= getWidth() - man.getWidth()-16)
 				{
-					System.out.print("hello");
 					man.setdx(0);
 				}
-				if (man.getY() == 0 || man.getY() == 300)
+				else if (man.getdx() == -3 && man.getX() <= 0) 
+				{
+					man.setdx(0);
+				}
+				
+				if (man.getdy() == -3 && man.getY() <= 0)
 				{
 					man.setdy(0);
 				}
+				else if (man.getdy() == 3 && man.getY() >= getHeight() - man.getHeight()-38)
+				{
+					man.setdy(0);
+				}
+				
 				man.update();
+				
+				for (int i = 0; i < balls.size(); i++)
+				{
+					if (balls.get(i).getX() <= 0 || balls.get(i).getX() >= getWidth() - balls.get(i).getWidth())
+					{
+						balls.remove(i);
+					}					
+				}
+				for(Ball ball: balls)
+					ball.update();
 				repaint();
 			}
 		});
@@ -112,25 +124,8 @@ public class WalkingManMain extends JFrame implements ActionListener
 		setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 	}
 	
-//	public void actionPerformed(ActionEvent e)
-//	{
-//		man.update();
-//		//for (Ball b: balls)
-////		{
-////			b.update();
-////		}
-//		repaint();
-	//}
-	
 	public static void main(String[] args)
 	{
 		new WalkingManMain();
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) 
-	{
-		// TODO Auto-generated method stub
-		
 	}
 }

@@ -23,6 +23,7 @@ public class WalkingMan extends JComponent
 	//press button -> change dx/dy -> that moves the man
 	//for ball b: shots
 	//b.update();
+	//balls must disappear from array once they leave the screen
 	
 	private Ellipse2D.Double head;
 	private Rectangle leftArm;
@@ -59,12 +60,22 @@ public class WalkingMan extends JComponent
 		paint.draw(hips);
 		paint.draw(leftLeg);
 		paint.draw(rightLeg);
-		paint.setColor(Color.BLACK);
+		paint.setColor(Color.RED);
 	}	
 	
 	public void update()
 	{
 		setLocation(getX() + dx, getY() + dy); 
+	}
+	
+	public int getdx()
+	{
+		return dx;
+	}
+	
+	public int getdy()
+	{
+		return dy;
 	}
 	
 	public void setdx(int x)
